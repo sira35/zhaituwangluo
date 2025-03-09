@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>企业名录 - 宅兔网络</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">宅兔网络</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/search.html">职位搜索</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/companies.html">企业名录</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="/login.html" class="btn btn-outline-primary me-2">登录</a>
+                    <a href="/register.html" class="btn btn-primary">注册</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <!-- 搜索过滤区 -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form class="row g-3">
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" placeholder="企业名称关键词">
+                            </div>
+                            <div class="col-md-3">
+                                <select class="form-select">
+                                    <option value="">所在地区</option>
+                                    <option>北京</option>
+                                    <option>上海</option>
+                                    <option>广州</option>
+                                    <option>深圳</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <select class="form-select">
+                                    <option value="">企业规模</option>
+                                    <option>0-20人</option>
+                                    <option>20-99人</option>
+                                    <option>100-499人</option>
+                                    <option>500-999人</option>
+                                    <option>1000-9999人</option>
+                                    <option>10000人以上</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-primary w-100">搜索</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 企业列表 -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="mb-0">
+                                <a href="#" class="text-dark text-decoration-none">宅兔科技有限公司</a>
+                            </h5>
+                            <span class="badge bg-primary">互联网</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p class="text-muted mb-2">
+                                    <i class="bi bi-geo-alt"></i> 北京市海淀区
+                                    <span class="mx-2">|</span>
+                                    <i class="bi bi-people"></i> 500-1000人
+                                    <span class="mx-2">|</span>
+                                    <i class="bi bi-building"></i> 民营企业
+                                </p>
+                                <p class="mb-0">主营业务：互联网招聘、人才服务、企业服务</p>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <a href="#" class="btn btn-outline-primary">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 更多企业列表项 -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="mb-0">
+                                <a href="#" class="text-dark text-decoration-none">蒙迪网络科技有限公司</a>
+                            </h5>
+                            <span class="badge bg-success">电子商务</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p class="text-muted mb-2">
+                                    <i class="bi bi-geo-alt"></i> 上海市浦东新区
+                                    <span class="mx-2">|</span>
+                                    <i class="bi bi-people"></i> 1000-5000人
+                                    <span class="mx-2">|</span>
+                                    <i class="bi bi-building"></i> 上市公司
+                                </p>
+                                <p class="mb-0">主营业务：电子商务平台、跨境贸易、供应链服务</p>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <a href="#" class="btn btn-outline-primary">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 分页 -->
+        <nav aria-label="Page navigation" class="mt-4">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">上一页</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">下一页</a>
+                </li>
+            </ul>
+        </nav>
+    </main>
+
+    <footer class="bg-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>宅兔网络</h5>
+                    <p>专业的招聘信息平台</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>联系我们</h5>
+                    <p>邮箱: 527494471@qq.com</p>
+                    <p>电话: 15130395952</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>关注我们</h5>
+                    <div class="d-flex">
+                        <a href="#" class="me-2">微信</a>
+                        <a href="#" class="me-2">微博</a>
+                        <a href="#">抖音</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12 text-center">
+                    <p class="mb-0">© 2024 宅兔网络 版权所有</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 企业列表数据处理和分页逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            // 这里可以添加企业列表的数据加载和处理逻辑
+        });
+    </script>
+</body>
+</html> 
