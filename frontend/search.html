@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>职位搜索 - 宅兔网络</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                宅兔网络
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/search.html">职位搜索</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/companies.html">企业名录</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="/login.html" class="btn btn-outline-primary me-2">登录</a>
+                    <a href="/register.html" class="btn btn-primary">注册</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form id="searchForm" class="row g-3">
+                            <div class="col-md-4">
+                                <label for="keyword" class="form-label">关键词</label>
+                                <input type="text" class="form-control" id="keyword" placeholder="职位名称、公司名称、技能等">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="location" class="form-label">地点</label>
+                                <select class="form-select" id="location">
+                                    <option value="">不限</option>
+                                    <option value="北京">北京</option>
+                                    <option value="上海">上海</option>
+                                    <option value="广州">广州</option>
+                                    <option value="深圳">深圳</option>
+                                    <option value="杭州">杭州</option>
+                                    <option value="成都">成都</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="industry" class="form-label">行业</label>
+                                <select class="form-select" id="industry">
+                                    <option value="">不限</option>
+                                    <option value="it">互联网/IT</option>
+                                    <option value="finance">金融/财务</option>
+                                    <option value="manufacturing">制造/工程</option>
+                                    <option value="education">教育/培训</option>
+                                    <option value="medical">医疗/健康</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2 d-flex align-items-end">
+                                <button type="submit" class="btn btn-primary w-100">搜索</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card mb-4">
+                    <div class="card-header">高级筛选</div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="form-label">薪资范围</label>
+                            <select class="form-select" id="salary">
+                                <option value="">不限</option>
+                                <option value="0-5000">5000以下</option>
+                                <option value="5000-10000">5000-10000</option>
+                                <option value="10000-15000">10000-15000</option>
+                                <option value="15000-20000">15000-20000</option>
+                                <option value="20000-30000">20000-30000</option>
+                                <option value="30000+">30000以上</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">工作经验</label>
+                            <select class="form-select" id="experience">
+                                <option value="">不限</option>
+                                <option value="应届生">应届生</option>
+                                <option value="1-3年">1-3年</option>
+                                <option value="3-5年">3-5年</option>
+                                <option value="5-10年">5-10年</option>
+                                <option value="10年以上">10年以上</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">学历要求</label>
+                            <select class="form-select" id="education">
+                                <option value="">不限</option>
+                                <option value="中专及以下">中专及以下</option>
+                                <option value="大专">大专</option>
+                                <option value="本科">本科</option>
+                                <option value="硕士">硕士</option>
+                                <option value="博士">博士</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">公司规模</label>
+                            <select class="form-select" id="companySize">
+                                <option value="">不限</option>
+                                <option value="1-50人">1-50人</option>
+                                <option value="50-200人">50-200人</option>
+                                <option value="200-500人">200-500人</option>
+                                <option value="500-1000人">500-1000人</option>
+                                <option value="1000人以上">1000人以上</option>
+                            </select>
+                        </div>
+                        <div class="d-grid">
+                            <button type="button" class="btn btn-outline-primary" id="applyFilter">应用筛选</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="mb-0">搜索结果 <span id="resultCount" class="text-muted">(0)</span></h5>
+                    <div>
+                        <select class="form-select form-select-sm" id="sortBy">
+                            <option value="relevance">相关度排序</option>
+                            <option value="date">发布日期</option>
+                            <option value="salary">薪资高低</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="searchResults" class="mb-4">
+                    <!-- 搜索结果将动态添加在这里 -->
+                    <div class="alert alert-info">
+                        请输入搜索条件并点击搜索按钮
+                    </div>
+                </div>
+
+                <div id="loadingIndicator" class="text-center d-none">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">加载中...</span>
+                    </div>
+                </div>
+
+                <div id="pagination" class="d-flex justify-content-center">
+                    <!-- 分页控件将动态添加在这里 -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>宅兔网络</h5>
+                    <p>专业的招聘信息平台</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>联系我们</h5>
+                    <p>邮箱: 527494471@qq.com</p>
+                    <p>电话: 15130395952</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>关注我们</h5>
+                    <div class="d-flex">
+                        <a href="#" class="me-2">微信</a>
+                        <a href="#" class="me-2">微博</a>
+                        <a href="#">抖音</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12 text-center">
+                    <p class="mb-0">© 2024 宅兔网络 版权所有</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 模拟职位数据
+        const mockPositions = [
+            {
+                id: 1,
+                title: "前端开发工程师",
+                company: "宅兔科技有限公司",
+                location: "北京",
+                salary: "15000-25000",
+                education: "本科",
+                experience: "3-5年",
+                tags: ["JavaScript", "Vue", "React"],
+                date: "2024-03-08"
+            },
+            {
+                id: 2,
+                title: "产品经理",
+                company: "宅兔网络科技",
+                location: "上海",
+                salary: "20000-30000",
+                education: "本科",
+                experience: "5-10年",
+                tags: ["互联网产品", "用户增长", "数据分析"],
+                date: "2024-03-07"
+            },
+            {
+                id: 3,
+                title: "后端工程师",
+                company: "蒙迪网络科技",
+                location: "杭州",
+                salary: "18000-28000",
+                education: "本科",
+                experience: "3-5年",
+                tags: ["Java", "Spring", "MySQL"],
+                date: "2024-03-06"
+            },
+            {
+                id: 4,
+                title: "UI设计师",
+                company: "卓讯科技有限公司",
+                location: "深圳",
+                salary: "12000-20000",
+                education: "大专",
+                experience: "1-3年",
+                tags: ["UI设计", "Sketch", "Figma"],
+                date: "2024-03-05"
+            },
+            {
+                id: 5,
+                title: "数据分析师",
+                company: "豪迪数据科技",
+                location: "广州",
+                salary: "15000-25000",
+                education: "本科",
+                experience: "3-5年",
+                tags: ["数据分析", "SQL", "Python"],
+                date: "2024-03-04"
+            },
+            {
+                id: 6,
+                title: "运维工程师",
+                company: "竭远科技有限公司",
+                location: "成都",
+                salary: "12000-18000",
+                education: "本科",
+                experience: "1-3年",
+                tags: ["Linux", "Docker", "Kubernetes"],
+                date: "2024-03-03"
+            }
+        ];
+
+        // 检查用户登录状态
+        function checkAuthStatus() {
+            const authToken = localStorage.getItem('authToken');
+            if (!authToken) {
+                // 如果未登录，修改顶部导航栏
+                const navAuth = document.querySelector('.d-flex');
+                if (navAuth) {
+                    navAuth.innerHTML = `
+                        <a href="/login.html" class="btn btn-outline-primary me-2">登录</a>
+                        <a href="/register.html" class="btn btn-primary">注册</a>
+                    `;
+                }
+            } else {
+                // 如果已登录，修改顶部导航栏
+                const navAuth = document.querySelector('.d-flex');
+                if (navAuth) {
+                    navAuth.innerHTML = `
+                        <div class="dropdown">
+                            <button class="btn btn-outline-primary dropdown-toggle" type="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
+                                个人中心
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="userMenu">
+                                <li><a class="dropdown-item" href="/profile.html">我的简历</a></li>
+                                <li><a class="dropdown-item" href="/applications.html">投递记录</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#" id="logoutBtn">退出登录</a></li>
+                            </ul>
+                        </div>
+                    `;
+                    
+                    // 添加退出登录事件
+                    document.getElementById('logoutBtn').addEventListener('click', function() {
+                        localStorage.removeItem('authToken');
+                        window.location.reload();
+                    });
+                }
+            }
+        }
+
+        // 渲染职位卡片
+        function renderJobCard(job) {
+            return `
+                <div class="card mb-3 job-card" data-id="${job.id}">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h5 class="card-title mb-1">
+                                    <a href="/job-detail.html?id=${job.id}" class="text-decoration-none">${job.title}</a>
+                                </h5>
+                                <p class="text-muted mb-2">${job.company} · ${job.location}</p>
+                            </div>
+                            <div class="text-danger fw-bold">${job.salary}</div>
+                        </div>
+                        <div class="d-flex flex-wrap mb-2">
+                            ${job.tags.map(tag => `<span class="badge bg-light text-dark me-2 mb-1">${tag}</span>`).join('')}
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">学历要求: ${job.education} · 经验: ${job.experience}</small>
+                            <small class="text-muted">发布时间: ${job.date}</small>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 搜索职位
+        function searchJobs(params) {
+            // 显示加载指示器
+            document.getElementById('loadingIndicator').classList.remove('d-none');
+            
+            // 模拟API请求延迟
+            setTimeout(() => {
+                // 根据参数过滤职位
+                let results = [...mockPositions];
+                
+                if (params.keyword) {
+                    const keyword = params.keyword.toLowerCase();
+                    results = results.filter(job => 
+                        job.title.toLowerCase().includes(keyword) || 
+                        job.company.toLowerCase().includes(keyword) || 
+                        job.tags.some(tag => tag.toLowerCase().includes(keyword))
+                    );
+                }
+                
+                if (params.location) {
+                    results = results.filter(job => job.location === params.location);
+                }
+                
+                if (params.industry) {
+                    // 简单模拟行业筛选
+                    if (params.industry === 'it') {
+                        results = results.filter(job => 
+                            job.tags.some(tag => ['JavaScript', 'Java', 'Python', 'React', 'Vue'].includes(tag))
+                        );
+                    }
+                }
+                
+                if (params.salary) {
+                    // 简单处理薪资筛选
+                    const [min, max] = params.salary.split('-').map(Number);
+                    results = results.filter(job => {
+                        const [jobMin, jobMax] = job.salary.split('-').map(s => parseInt(s.replace(/[^\d]/g, '')));
+                        return (jobMin >= min && jobMin <= max) || (jobMax >= min && jobMax <= max);
+                    });
+                }
+                
+                if (params.experience) {
+                    results = results.filter(job => job.experience === params.experience);
+                }
+                
+                if (params.education) {
+                    results = results.filter(job => job.education === params.education);
+                }
+                
+                // 排序结果
+                if (params.sortBy === 'date') {
+                    results.sort((a, b) => new Date(b.date) - new Date(a.date));
+                } else if (params.sortBy === 'salary') {
+                    results.sort((a, b) => {
+                        const aSalary = parseInt(a.salary.split('-')[1].replace(/[^\d]/g, ''));
+                        const bSalary = parseInt(b.salary.split('-')[1].replace(/[^\d]/g, ''));
+                        return bSalary - aSalary;
+                    });
+                }
+                
+                // 更新搜索结果数量
+                document.getElementById('resultCount').textContent = `(${results.length})`;
+                
+                // 渲染搜索结果
+                const resultsContainer = document.getElementById('searchResults');
+                
+                if (results.length === 0) {
+                    resultsContainer.innerHTML = `
+                        <div class="alert alert-warning">
+                            没有找到符合条件的职位，请尝试调整搜索条件
+                        </div>
+                    `;
+                } else {
+                    resultsContainer.innerHTML = results.map(job => renderJobCard(job)).join('');
+                    
+                    // 给职位卡片添加点击事件
+                    document.querySelectorAll('.job-card').forEach(card => {
+                        card.addEventListener('click', function() {
+                            const jobId = this.getAttribute('data-id');
+                            window.location.href = `/job-detail.html?id=${jobId}`;
+                        });
+                    });
+                }
+                
+                // 隐藏加载指示器
+                document.getElementById('loadingIndicator').classList.add('d-none');
+            }, 800); // 800ms延迟模拟网络请求
+        }
+
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            // 检查登录状态
+            checkAuthStatus();
+            
+            // 解析URL参数
+            const urlParams = new URLSearchParams(window.location.search);
+            const keyword = urlParams.get('keyword') || '';
+            const location = urlParams.get('location') || '';
+            const industry = urlParams.get('industry') || '';
+            
+            // 填充表单
+            document.getElementById('keyword').value = keyword;
+            document.getElementById('location').value = location;
+            document.getElementById('industry').value = industry;
+            
+            // 如果有搜索参数，执行搜索
+            if (keyword || location || industry) {
+                searchJobs({
+                    keyword,
+                    location,
+                    industry,
+                    sortBy: 'relevance'
+                });
+            }
+            
+            // 搜索表单提交
+            document.getElementById('searchForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const keyword = document.getElementById('keyword').value;
+                const location = document.getElementById('location').value;
+                const industry = document.getElementById('industry').value;
+                const sortBy = document.getElementById('sortBy').value;
+                
+                // 更新URL参数
+                const params = new URLSearchParams();
+                if (keyword) params.set('keyword', keyword);
+                if (location) params.set('location', location);
+                if (industry) params.set('industry', industry);
+                
+                const newUrl = `${window.location.pathname}?${params.toString()}`;
+                window.history.pushState({}, '', newUrl);
+                
+                // 执行搜索
+                searchJobs({
+                    keyword,
+                    location,
+                    industry,
+                    sortBy
+                });
+            });
+            
+            // 排序下拉框变化
+            document.getElementById('sortBy').addEventListener('change', function() {
+                const keyword = document.getElementById('keyword').value;
+                const location = document.getElementById('location').value;
+                const industry = document.getElementById('industry').value;
+                const sortBy = this.value;
+                
+                // 执行搜索
+                searchJobs({
+                    keyword,
+                    location,
+                    industry,
+                    sortBy,
+                    salary: document.getElementById('salary').value,
+                    experience: document.getElementById('experience').value,
+                    education: document.getElementById('education').value
+                });
+            });
+            
+            // 应用筛选按钮
+            document.getElementById('applyFilter').addEventListener('click', function() {
+                const keyword = document.getElementById('keyword').value;
+                const location = document.getElementById('location').value;
+                const industry = document.getElementById('industry').value;
+                const sortBy = document.getElementById('sortBy').value;
+                const salary = document.getElementById('salary').value;
+                const experience = document.getElementById('experience').value;
+                const education = document.getElementById('education').value;
+                const companySize = document.getElementById('companySize').value;
+                
+                // 执行搜索
+                searchJobs({
+                    keyword,
+                    location,
+                    industry,
+                    sortBy,
+                    salary,
+                    experience,
+                    education,
+                    companySize
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
