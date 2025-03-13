@@ -26,7 +26,7 @@ const bigCompanies = [
     { name: "中国联通", type: "社招", url: "https://www.chinaunicom.com.cn/46/menu01/528/column06" },
     { name: "中国电信", type: "校招", url: "https://job.chinatelecom.com.cn/wt/TELE/web/index#/" },
     { name: "招商银行", type: "社招", url: "https://career.cmbchina.com/home" },
-    { name: "工商银行", type: "校招", url: "https://career.icbc.com.cn" },
+    { name: "工商银行", type: "校招", url: "https://job.icbc.com.cn/pc/index.html#/main/school/home/post" },
     { name: "中兴", type: "社招", url: "https://job.zte.com.cn/cn/" },
     { name: "海尔", type: "校招", url: "https://www.haier.com/careers" },
     { name: "美的集团", type: "社招", url: "https://www.midea.com/careers" },
@@ -38,21 +38,32 @@ const bigCompanies = [
     { name: "搜狗", type: "社招", url: "https://www.sogou.com/docs/jobs/jobs_tech_04.htm" },
     { name: "OPPO", type: "校招", url: "https://career.oppo.com" },
     { name: "Vivo", type: "社招", url: "https://hr.vivo.com/home" },
-    { name: "360", type: "校招", url: "https://hr.360.cn/hr/" }
+    { name: "360", type: "校招", url: "https://hr.360.cn/hr/" },
+    { name: "中国外运", type: "社招", url: "https://sinotrans.zhiye.com/custom/social?hideAll=true&ky=&c1=&c2=&c=" },
+    { name: "新东方教育集团", type: "校招", url: "https://zhaopin.xdf.cn/campus/jobs" }
 ];
 
 // 中小企业公司列表
 const smallCompanies = [
     { name: "豪威科技集团", type: "社招", url: "http://www.hivac.cn/" },
     { name: "浙江精工钢结构", type: "校招", url: "http://www.600496.com/" },
-    { name: "天立电机", type: "社招", url: "https://www.liepin.com/company/9764437/" },
-    { name: "重庆中邦药业", type: "校招", url: "https://www.liepin.com/company/8032362/" },
+    { name: "天立电机", type: "社招", url: "https://www.job5156.com/comp/zp-815822.html" },
+    { name: "重庆中邦药业", type: "校招", url: "http://www.7ahr.com/Company/ListCompany-ehlu51.html" },
     { name: "安徽金辉电子", type: "社招", url: "https://www.qcc.com/firm/dee09a3d66f5d63f902cfae11b62cf76.html" },
-    { name: "物元半导体", type: "校招", url: "https://www.yingjiesheng.com/job-007-398-306.html" },
+    { name: "物元青岛半导体公司", type: "校招", url: "https://www.yingjiesheng.com/job-007-398-306.html" },
     { name: "博鼎集团", type: "社招", url: "http://www.dlypt.net/about" },
     { name: "博创精工科技", type: "校招", url: "https://bozhon3.zhiye.com/campus" },
     { name: "腾盾科创", type: "社招", url: "https://www.tengden.com/" },
-    { name: "图南合金", type: "校招", url: "http://www.toland-alloy.com/job.html" }
+    { name: "江苏图南合金股份有限公司", type: "校招", url: "http://www.toland-alloy.com/job.html" },
+    { name: "四川九洲投资控股集团有限公司", type: "社招", url: "https://www.jezetek.cc/" },
+    { name: "烽火通信科技", type: "校招", url: "https://www.fiberhome.com/joinus.html" },
+    { name: "深圳市创梦天地科技有限公司", type: "社招", url: "https://www.idreamsky.com/" },
+    { name: "深圳市合元科技有限公司", type: "社招", url: "https://kiem9mgc6h.jobs.feishu.cn/index" },
+    { name: "武汉光庭信息技术股份有限公司", type: "社招", url: "https://kotei.zhiye.com/campus/" },
+    { name: "MiniMax公司", type: "社招", url: "https://vrfi1sk8a0.jobs.feishu.cn/index" },
+    { name: "宇视科技", type: "社招", url: "https://talent.uniview.com/index.html" },
+    { name: "石家庄邢森染料有限公司", type: "社招", url: "http://shinedyes.com/" },
+    { name: "远大阀门集团有限公司", type: "社招", url: "http://www.100famen.com/index/product/brand/3.html" }
 ];
 
 const locations = ["北京市", "上海市", "广州市", "深圳市", "杭州市", "成都市", "武汉市", "南京市", "西安市", "苏州市"];
@@ -95,14 +106,85 @@ for (let company of smallCompanies) {
     });
 }
 
+// 大学生就业招聘平台列表
+const graduateServices = [
+    {
+        name: "中国航天人才网",
+        type: "统招",
+        url: "https://www.spacetalent.com.cn/zhiweicx.html",
+        description: "国家航天事业单位招聘平台"
+    },
+    {
+        name: "中国电建招聘平台",
+        type: "统招",
+        url: "https://zhaopin.powerchina.cn/xyzp",
+        description: "电力建设行业重点企业招聘"
+    },
+    {
+        name: "中国南方电网",
+        type: "统招",
+        url: "https://zhaopin.powerchina.cn/xyzp",
+        description: "电网系统重点企业招聘"
+    },
+    {
+        name: "中国兵器校园招聘平台",
+        type: "统招",
+        url: "https://zhaopin.nhrdc.cn/campus/jobs.jsp",
+        description: "军工行业重点单位招聘"
+    },
+    {
+        name: "中央和国家机关所属事业单位",
+        type: "统招",
+        url: "https://www.mohrss.gov.cn/SYrlzyhshbzb/fwyd/SYkaoshizhaopin/zyhgjjgsydwgkzp/",
+        description: "国家机关事业单位招聘信息"
+    },
+    {
+        name: "人力资源社会保障部事业单位招聘平台",
+        type: "统招",
+        url: "https://www.sydwgkzp.cn/mohrss/index.html#/login",
+        description: "全国事业单位公开招聘服务平台"
+    },
+    { 
+        name: "全国大学生创业服务网", 
+        type: "创业服务", 
+        url: "https://cy.ncss.cn/",
+        description: "专注大学生创业指导与服务"
+    },
+    { 
+        name: "研究生招生信息网", 
+        type: "升学服务", 
+        url: "https://yz.chsi.com.cn/",
+        description: "权威的研究生招生信息发布平台"
+    },
+    { 
+        name: "全国高校毕业生毕业去向登记系统", 
+        type: "就业统计", 
+        url: "https://dj.ncss.cn/",
+        description: "毕业生去向信息统计平台"
+    },
+    { 
+        name: "国际组织实习任职平台", 
+        type: "国际就业", 
+        url: "https://gj.ncss.cn/",
+        description: "国际组织实习与就业机会"
+    },
+    { 
+        name: "新疆籍毕业生就业创业信息平台", 
+        type: "区域就业", 
+        url: "https://xj.ncss.cn/",
+        description: "服务新疆籍毕业生就业创业"
+    }
+];
+
 // 生成HTML
 function generateJobCards() {
     return `
         <div class="page-header">
             <div class="category-buttons-wrapper">
                 <div class="category-buttons">
-                    <button class="category-btn active" data-category="big">大厂</button>
+                    <button class="category-btn" data-category="big">大厂</button>
                     <button class="category-btn" data-category="small">中小企业</button>
+                    <button class="category-btn" data-category="graduate">大学生就业</button>
                 </div>
             </div>
             <div class="header-bottom">
@@ -115,11 +197,14 @@ function generateJobCards() {
             </div>
         </div>
         <div class="company-container">
-            <div class="company-grid big-companies active">
+            <div class="company-grid big-companies">
                 ${generateCompanyGrid(bigCompanies)}
             </div>
             <div class="company-grid small-companies">
                 ${generateCompanyGrid(smallCompanies)}
+            </div>
+            <div class="company-grid graduate-services">
+                ${generateGraduateServicesGrid(graduateServices)}
             </div>
         </div>
     `;
@@ -142,6 +227,24 @@ function generateCompanyGrid(companies) {
     `;
 }
 
+function generateGraduateServicesGrid(services) {
+    return `
+        <div class="grid-container">
+            ${services.map(service => `
+                <a href="${service.url}" target="_blank" class="company-card graduate-card" data-company="${service.name}">
+                    <div class="card-header">
+                        ${service.type}
+                    </div>
+                    <div class="card-body">
+                        <h3>${service.name}</h3>
+                        <p class="service-description">${service.description}</p>
+                    </div>
+                </a>
+            `).join('')}
+        </div>
+    `;
+}
+
 // 将生成的公司卡片插入到页面中并添加交互
 document.addEventListener('DOMContentLoaded', function() {
     const jobCardsContainer = document.querySelector('.job-cards');
@@ -150,18 +253,19 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 添加标签切换功能
         const buttons = document.querySelectorAll('.category-btn');
-        const companyGrids = document.querySelectorAll('.company-grid');
+        const grids = document.querySelectorAll('.company-grid');
 
         buttons.forEach(button => {
             button.addEventListener('click', function() {
                 buttons.forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
-
+                
                 const category = this.dataset.category;
-                companyGrids.forEach(grid => {
-                    grid.classList.remove('active');
-                    if (grid.classList.contains(category + '-companies')) {
-                        grid.classList.add('active');
+                grids.forEach(grid => {
+                    grid.style.display = 'none';
+                    if (grid.classList.contains(category + '-companies') || 
+                        grid.classList.contains(category + '-services')) {
+                        grid.style.display = 'block';
                     }
                 });
             });
@@ -429,6 +533,32 @@ style.textContent = `
         .card-body h3 {
             font-size: 28px;
         }
+    }
+
+    .graduate-card {
+        background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    }
+    
+    .graduate-card .card-header {
+        background: linear-gradient(135deg, #4b6cb7, #182848);
+        color: white;
+    }
+    
+    .graduate-card .card-body h3 {
+        color: #4b6cb7;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    
+    .service-description {
+        font-size: 16px;
+        color: #666;
+        margin-top: 10px;
+    }
+    
+    .graduate-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(75, 108, 183, 0.2);
     }
 `;
 
